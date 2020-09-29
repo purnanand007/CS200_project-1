@@ -1,0 +1,116 @@
+body{
+				padding: 0;
+				margin: 0;
+				background-color: #00c978;
+			}
+
+
+
+#cmpltform{
+				padding: 10px;
+				width: 450px;
+				height:70px;
+				background-color: black;
+				position: absolute; 
+				left: 250px;
+				top:12%;
+				color: white;
+				font-size:15px;
+				text-align:center;
+				vertical-align:center;
+				border-radius:7px;
+				border:2px solid white;
+				}
+
+
+
+
+
+
+
+#aform{
+				width:370px;
+				background-color: #ec2b2b;
+				padding : 25px 20px 0;
+				position: absolute ;
+				left:280px;
+				top:20%;
+				border-radius: 8px;
+				color:white;
+				font-family: Courier New;
+				font-size:16px;
+				border:1px solid black;
+}
+
+
+
+#button1,#button11,#button2,#button21{
+				position: relative;
+				left:37%;
+				width: 100px;
+				height:40px;
+				color:white;
+				border-radius: 7px;
+				border: 1px transparent;
+				background-color: #28bb22;
+				font-family: Courier New;
+				font-size:16px;
+				/*-webkit-border-radius: 0;         
+				-moz-border-radius: 0;*/
+}
+
+
+
+
+#button11{
+				background-color: #2383be;
+}
+
+
+
+
+#button2{
+				width: 130px;
+				left:33%;
+				background-color: #f2422c;
+}
+
+
+#button21{
+				background-color: #d9af27;
+				}
+
+
+
+#button1,#button2{
+				margin-bottom: 25px;
+				}
+
+
+
+input[type=text]{
+				padding: 5px;
+				border-radius :5px;
+				border: 1px solid black;
+}
+
+
+
+
+
+
+
+
+#dform{
+				width:370px;
+				background-color: #00a7d7;
+				padding : 25px 20px 0;
+				position: absolute ;
+			 left:280px;
+				top:50%;
+				border-radius :8px;
+				color:white;
+				font-family: Courier New;
+				font-size:16px;
+				border:1px solid black;
+}
