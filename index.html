@@ -2,40 +2,36 @@
 <html>
     <head>
         <title>Javascript - Add HTML Table Row </title>
-      
-
+      <script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js">
+     </script>
+ <link href="style.css" rel= stylesheet>
+<style src="indexjs.js" > </style>	    
 </head>
     <body>
-	  <button id="button1"> Add Row</button> <br><br>
+    
+	<button id="button1"> Add Row</button> <br><br> 
     <div id="addrow">
-    ID: <input type="text" name="findex" id="findex"/>
-    <br><br>
-        First Name: <input type="text" name="fname" id="fname"/>		
-
-	<br/><br/>
-        Last Name: <input type="text" name="lname" id="lname" />		
-
-	<br/><br/>
-        project: <input type="text" name="project" id="project" 
-
-/><br/><br/>
-	 Email_id: <input type="text" name="email" id="email" 
-
-/><br/><br/>
-        <button id="button11"> Submit</button> <br><br>
+    <form action="/action_page.php">
+    ID: <input type="text" name="findex" id="findex" required/><br><br>
+    First Name: <input type="text" name="fname" id="fname" required/><br/><br/>
+    Last Name: <input type="text" name="lname" id="lname"  required/><br/><br/>
+    project: <input type="text" name="project" id="project"  required/><br/><br/>
+    Email_id: <input type="text" name="email" id="email"  required/><br/><br/>
+    <button id="button11"> Submit</button> <br><br>
+    </form>
     </div>
  	
-	<button id="button2"> Delete Row</button>
-	<br/><br/>
-   
+	<button id="button2"> Delete Row</button> <br/><br/>
 	<div id="delrow">
-	ID: <input type="text" name="ID" id="ID"/>	<br/><br/>	
+	ID: <input type="text" name="ID" id="ID" requird/><br/><br/>	
 	<button id="button21"> Confirm</button> <br><br>
 	</div>
-	 <button id="dellocaldata"> DeleteAllData </button> <br><br>
-    	<div id="myTable">
-        <table id="mytable" border="1" >
-              
+    
+	<button id="dellocaldata"> DeleteAllData </button> <br><br>
+    
+    <div id="myTable">
+    <table id="mytable" border="1" >  
             <tr>
 		<th>ID </th>
                 <th>First Name</th>
