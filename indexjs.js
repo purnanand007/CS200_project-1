@@ -1,26 +1,24 @@
-<script
-src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js">
-</script>
-<link href="style.css" rel= stylesheet>
 <script>
 
 $(document).ready(function(){
 $("#addrow").hide();
 $("#delrow").hide();
   $("#button1").click(function(){
-   $("#addrow").toggle("slow");
+   $("#addrow").show("slow");
   });
    $("#button11").click(function(){
-    $("#addrow").toggle("slow",addData());
+    $("#addrow").show("slow",addData());
   });
  $("#button2").click(function(){
- $("#delrow").toggle("slow");
+ $("#delrow").show("slow");
   });
 
 $("#button21").click(function(){
  $("#delrow").toggle("slow",delRow() );
    });
-$("#dellocaldata").click(deleteData());   
+$("#dellocaldata").click(function(){
+	 deleteData();
+     });
    
 });
 
@@ -58,45 +56,23 @@ function showData() {
                   cel5.innerHTML = arr[i].email;
         }   
 }
-/*function addRow()
-            {
-              	var findex=document.getElementById('findex').value;
-                var fname = document.getElementById('fname').value;
-                 var lname = document.getElementById('lname').value;
-                  var project = document.getElementById('project').value;
-                  var email = document.getElementById('email').value;
-        
-                 var table = document.getElementsById('mytable');
-                  
-               
-                  var newRow = table.insertRow();
-                  
-                  // add cells to the row
-                  var cel1 = newRow.insertCell(0);
-                  var cel2 = newRow.insertCell(1);
-                  var cel3 = newRow.insertCell(2);
-                  var cel4 = newRow.insertCell(3);
-		  var cel5 = newRow.insertCell(4);
-                  
-                  // add values to the cells
-                  cel1.innerHTML = findex;
-                  cel2.innerHTML = fname;
-                  cel3.innerHTML = lname;
-                  cel4.innerHTML = project;
-		  cel5.innerHTML = email;
-            } 
 
-*/
 function delRow() {
 
 		var dID=document.getElementById('ID').value;
  		var table = document.getElementsByTagName('table')[0];
-		var x=table.rows.length;
-		
-			while(x--) {
-			if(table[0][x]=='dID')
-			table.deleteRow(x);
-				}
+		 getData();
+         var x=table.rows.length;
+         var k=x;
+		for(i=0;i<k;i++)
+        if(arr[i].findex==dID)
+        	{table.deleteRow(i+1);
+              arr.splice(i, 1);
+              localStorage.setItem("localData", JSON.stringify(arr));
+            break;
+            }
+        if(i==k)
+        alert("value not found");
 }
 
 var arr = new Array();
@@ -125,3 +101,6 @@ showData();
 }
 
 </script>
+    </body>
+
+</html>
