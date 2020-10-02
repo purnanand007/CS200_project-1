@@ -64,6 +64,7 @@ function delRow() {
 		 getData();
          var x=table.rows.length;
          var k=x;
+         var i=0;
 		for(i=0;i<k;i++)
         if(arr[i].findex==dID)
         	{table.deleteRow(i+1);
@@ -71,14 +72,37 @@ function delRow() {
               localStorage.setItem("localData", JSON.stringify(arr));
             break;
             }
-        if(i==k)
-        alert("value not found");
+       if(i===k)
+       alert("value not found");
+        
 }
 
 var arr = new Array();
 function addData() {
 		getData();
-		arr.push({
+        		var _findex=ocument.getElementById('findex').value;
+        		var _name =document.getElementById('fname').value;
+                var _lname =document.getElementById('lname').value;
+                var _project=document.getElementById('project').value;
+				var _email =document.getElementById('email').value;
+       
+        var x=arr.length;
+        var i=0,j=0;
+        for(i=0;i<x;i++)
+       	 if((arr[i].findex==checkid))
+        {	alert("id value should be unique");
+        	break;
+        }
+        if(i==x)
+     		for(j=0;j<x;j++)
+        	if(arr[j].email==checkemail)
+        	{	alert("Email is maching");
+           		 break;}
+        if(i==x && j==x )
+        if(_findex!= '' && _name != '' &&  _lname!='' && _project !='' && _email!=''  
+
+)
+		{arr.push({
 				findex:document.getElementById('findex').value,
                 fname :document.getElementById('fname').value,
                 lname :document.getElementById('lname').value,
@@ -87,20 +111,27 @@ function addData() {
 });
 
  localStorage.setItem("localData",JSON.stringify(arr));
-
+ 
  showData();
-//addRow();
+ }
 }
 
 
 
 function deleteData() 
-{
+{ sendEmail();
 localStorage.clear();
 showData();
 }
 
-</script>
-    </body>
-
-</html>
+function sendEmail() { 
+      Email.send({
+    SecureToken : "C973D7AD-F097-4B95-91F4-40ABC5567812",
+    To : 'purnanaddubey3701@gmail.com',
+    From : "purnananddubey2001@gmail.com",
+    Subject : "This is the subject",
+    Body : "And this is the body"
+}).then(
+  message => alert(message)
+);
+    } 
