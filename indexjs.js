@@ -4,13 +4,13 @@ $(document).ready(function(){
 $("#addrow").hide();
 $("#delrow").hide();
   $("#button1").click(function(){
-   $("#addrow").show("slow");
+   $("#addrow").toggle("slow");
   });
    $("#button11").click(function(){
-    $("#addrow").show("slow",addData());
+    $("#addrow").toggle("slow",addData());
   });
  $("#button2").click(function(){
- $("#delrow").show("slow");
+ $("#delrow").toggle("slow");
   });
 
 $("#button21").click(function(){
