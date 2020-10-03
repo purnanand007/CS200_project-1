@@ -8,17 +8,17 @@ body{
 
 #cmpltform{
 				padding: 10px;
-				width: 450px;
-				height:70px;
+				width: 350px;
+				height:50px;
 				background-color: black;
 				position: absolute; 
-				left: 250px;
-				top:12%;
+				left:0px;
+				top:3%;
 				color: white;
 				font-size:15px;
 				text-align:center;
 				vertical-align:center;
-				border-radius:7px;
+				border-radius:5px;
 				border:2px solid white;
 				}
 
@@ -29,12 +29,12 @@ body{
 
 
 #aform{
-				width:370px;
+				width:300px;
 				background-color: #ec2b2b;
 				padding : 25px 20px 0;
 				position: absolute ;
-				left:280px;
-				top:20%;
+				left:0px;
+				top:15%;
 				border-radius: 8px;
 				color:white;
 				font-family: Courier New;
@@ -102,12 +102,12 @@ input[type=text]{
 
 
 #dform{
-				width:370px;
+				width:300px;
 				background-color: #00a7d7;
 				padding : 25px 20px 0;
 				position: absolute ;
-			 left:280px;
-				top:50%;
+			 	left:0px;
+				top:85%;
 				border-radius :8px;
 				color:white;
 				font-family: Courier New;
@@ -119,14 +119,14 @@ input[type=text]{
 
 
 div #mytable{
-				width: 875px;
+				width: 700px;
 				position: absolute ;
-				left: 50px;
-				top:70%;
+				left: 550px;
+				top:5%;
 				border:transparent; 
 				border-collapse: collapse;
 				background-color: white;
-				border-radius: 20px;
+				border-radius: 10px;
 }
 
 
@@ -166,4 +166,3 @@ div #mytable{
 #ftble{
 				padding:0 30px 0;
 				}
-
