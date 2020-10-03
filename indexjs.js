@@ -99,9 +99,7 @@ function addData() {
         	{	alert("Email is maching");
            		 break;}
         if(i==x && j==x )
-        if(_findex!= '' && _name != '' &&  _lname!='' && _project !='' && _email!=''  
-
-)
+        if(_findex!= '' && _name != '' &&  _lname!='' && _project !='' && _email!=''  )
 		{arr.push({
 				findex:document.getElementById('findex').value,
                 fname :document.getElementById('fname').value,
