@@ -1,58 +1,130 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <title>Javascript - Add HTML Table Row </title>
-      <script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js">
-     </script>
- <link href="style.css" rel= stylesheet>
-<style src="indexjs.js" > </style>	    
-</head>
-    <body>
-    
-	<button id="button1"> Add Row</button> <br><br> 
-    <div id="addrow">
-    <form action="/action_page.php">
-    ID: <input type="text" name="findex" id="findex" required/><br><br>
-    First Name: <input type="text" name="fname" id="fname" required/><br/><br/>
-    Last Name: <input type="text" name="lname" id="lname"  required/><br/><br/>
-    project: <input type="text" name="project" id="project"  required/><br/><br/>
-    Email_id: <input type="text" name="email" id="email"  required/><br/><br/>
-    <button id="button11"> Submit</button> <br><br>
-    </form>
-    </div>
- 	
-	<button id="button2"> Delete Row</button> <br/><br/>
-	<div id="delrow">
-	ID: <input type="text" name="ID" id="ID" requird/><br/><br/>	
-	<button id="button21"> Confirm</button> <br><br>
-	</div>
-    
-	<button id="dellocaldata"> DeleteAllData </button> <br><br>
-    
-    <div id="myTable">
-    <table id="mytable" border="1" >  
-            <tr>
-		<th>ID </th>
-                <th>First Name</th>
-                <th>Last Name</th>
-                <th>project</th>
-		<th>Email_id</th> 
-            </tr>
-            
-            <tr>
-		<td> #id_no</td>
-                <td>ABC</td>
-                <td>DEF</td>
-                <td>cs200</td>
-		<td>anand@gmail.com</td>
-            </tr>
-        </table>
-	 
-	</div>
-	<script>
-	showData();
-	</script>
-    </body>
+<html> 
+<head> 
+<title>Javascript - Add HTML Table Row </title> 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"> </script> 
+<script src="indexjs.js">
+</script>
+<link rel="stylesheet" type="text/css" href="style.css"/>
 
-</html>
+
+</head> 
+
+
+
+
+<body>      
+
+
+
+<div id="cmpltform">
+<h1>Select an Option  !!</h1>
+</div>
+<div id="aform">
+<button id="button1"> Add Row</button> 
+
+<div id="addrow"> 
+<table id="ftble0">
+<tr id="rgap">
+<td id="fhead">ID:</td> 
+<td id="fval"><input type="text" name="findex" id="findex" required/> </td>
+</tr>
+<tr id="rgap">
+<td id="fhead">First Name:</td> 
+<td id="fval"><input type="text" name="fname" id="fname" required/>            
+</td>
+</tr>
+<tr id="rgap">
+<td id="fhead">Last Name:</td>
+<td id="fval"><input type="text" name="lname" id="lname"  required/>         
+</td>
+</tr>
+<tr id="rgap">
+<td id="fhead">project:</td>
+<td id="fval"> <input type="text" name="project" id="project"  required/>
+</td>
+</tr>
+<tr id="rgap">
+<td id="fhead">Email_id:</td>
+<td id="fval"> <input type="text" name="email" id="email"  required/>
+</td>
+</tr>
+</table>
+<button id="button11"> Submit</button> 
+<br><br> 
+</div>
+</div>
+
+
+<div id="dform">
+<button id="button2"> Delete Row</button>     
+<div id="delrow">     
+<table id="ftble">
+<tr id="rgap">
+<td id="fhead">ID:</td>
+<td id="fval"><input type="text" name="ID" id="ID" required/>    </td>
+</tr>
+</table>
+<button id="button21"> Confirm</button> 
+<br><br>
+</div>
+</div>
+
+
+<!--update file code -->
+<div id="uform">
+<button id="update"> UpdateData</button> <br><br>
+<div id="updatediv">
+ID:<input type="text" name="uID" id="uID" required/><br><br>
+
+Updated First Name :<input type="text" name="ufname" id="ufname" required/><br><br>
+
+Updated Last  Name :<input type="text" name="ulname" id="ulname"  required/><br><br>    
+
+Updated Project :<input type="text" name="uproject" id="uproject"  required/><br><br>
+
+Updated Email :<input type="text" name="uemail" id="uemail"  required/><br><br>
+
+<button id="uconfirm">Update Data Confirm</button> <br><br>
+</div>
+</div>
+
+<button id="dellocaldata"> DeleteAllData </button> <br><br>
+ 
+<div id="myTable"> 
+<table id="mytable" border="1" > 
+
+<tr>         
+
+    <th>ID </th> 
+    <th>First Name</th> 
+    <th>Last Name</th> 
+    <th>project</th>         
+    <th>Email_id</th> 
+</tr> 
+<tr>
+          <td> 1</td> 
+          <td>AAAAAA</td> 
+          <td>BBBBBB</td> 
+          <td>10</td>         
+          <td>@jk</td> 
+</tr> 
+
+
+</table>         
+
+
+</div>
+
+
+
+<script>     
+
+showData(); 
+
+    </script>     
+    
+    </body> 
+    
+    
+    </html>
