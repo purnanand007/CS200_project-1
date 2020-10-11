@@ -1,3 +1,4 @@
+
 body {
   background-color:green;
 }
@@ -63,7 +64,7 @@ body {
 				border: 1px transparent;
 				background-color: #28bb22;
 				font-family: Courier New;
-				font-size:16px;
+				font-size:18px;
 				/*-webkit-border-radius: 0;         
 				-moz-border-radius: 0;*/
 }
@@ -71,14 +72,14 @@ body {
 
 
 #dellocaldata{
-				left:82%;
-		
-				width: 170px;
+				left:center;
+				top:0px;
+				width: 420px;
 				height: 50px;
-				background-color: #7155ea;
-				/*vertical-align:center;
-				text-align:center;*/
-				padding:6px;
+				background-color:purple;
+				color:pink;
+				font-family: bold;
+				font-size:20px;
 				
 				}
 				
@@ -87,7 +88,7 @@ body {
 #update{
 				width:150px;
 				left:33%;
-				background-color: #006bff;
+				background-color: blue;
 				}
 				
 				
@@ -158,13 +159,12 @@ div #mytable{
 				width:640px;
 				position: absolute ;
 				left: 500px;
-				top:0%;
+				top:10%;
 				border:transparent; 
 				border-collapse: collapse;
 				background-color: white;
 				border-radius: 20px;
 }
-
 
 
 #mytable th,td{
