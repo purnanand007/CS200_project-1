@@ -1,24 +1,23 @@
-body{
-				padding: 0;
-				margin: 0;
-				background-color: #00c978;
-			}
+
+body {
+  background-color:green;
+}
 
 
 
 #cmpltform{
 				padding: 10px;
-				width: 350px;
-				height:50px;
+				width: 300px;
+				height:70px;
 				background-color: black;
 				position: absolute; 
-				left:0px;
-				top:3%;
+				left: 0px;
+				top:0%;
 				color: white;
 				font-size:15px;
 				text-align:center;
 				vertical-align:center;
-				border-radius:5px;
+				border-radius:7px;
 				border:2px solid white;
 				}
 
@@ -28,8 +27,8 @@ body{
 
 
 
-#aform{
-				width:300px;
+#aform,#uform{
+				width:340px;
 				background-color: #ec2b2b;
 				padding : 25px 20px 0;
 				position: absolute ;
@@ -38,13 +37,23 @@ body{
 				border-radius: 8px;
 				color:white;
 				font-family: Courier New;
-				font-size:16px;
+				font-size:15px;
 				border:1px solid black;
 }
 
 
+#uform{
+				margin-left: -40px;
+				width: 450px;
+				background-color: red;
+				position:absolute;
+				top: 90%;
+				left:800px;
+				}
 
-#button1,#button11,#button2,#button21{
+
+
+#button1,#button11,#button2,#button21,#update,#uconfirm,#dellocaldata{
 				position: relative;
 				left:37%;
 				width: 100px;
@@ -59,6 +68,33 @@ body{
 				-moz-border-radius: 0;*/
 }
 
+
+
+#dellocaldata{
+				left:75%;
+				width: 170px;
+				height: 50px;
+				background-color: #7155ea;
+				/*vertical-align:center;
+				text-align:center;*/
+				padding:6px;
+				}
+				
+				
+				
+#update{
+				width:150px;
+				left:33%;
+				background-color: #006bff;
+				}
+				
+				
+
+#uconfirm{
+				width:250px;
+				left:23%;
+				background-color: #d14cce;
+				}
 
 
 
@@ -102,12 +138,12 @@ input[type=text]{
 
 
 #dform{
-				width:300px;
+				width:340px;
 				background-color: #00a7d7;
 				padding : 25px 20px 0;
 				position: absolute ;
-			 	left:0px;
-				top:85%;
+				left:0px;
+				top:95%;
 				border-radius :8px;
 				color:white;
 				font-family: Courier New;
@@ -116,17 +152,15 @@ input[type=text]{
 }
 
 
-
-
 div #mytable{
-				width: 700px;
+				width:640px;
 				position: absolute ;
-				left: 550px;
-				top:5%;
+				left: 400px;
+				top:0%;
 				border:transparent; 
 				border-collapse: collapse;
 				background-color: white;
-				border-radius: 10px;
+				border-radius: 20px;
 }
 
 
@@ -150,6 +184,7 @@ div #mytable{
 				font-family: Times New Roman;
 				font-size:18;
 				border:transparent; 
+				color:black;
 }
 
 
