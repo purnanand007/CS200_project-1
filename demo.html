@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html> 
+<head> 
+<title>Javascript - Add HTML Table Row </title> 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"> </script> 
+<script>
+$(document).ready(function(){
+$("#addrow").hide();
+$("#delrow").hide();
+$("#updatediv").hide();
+  $("#button1").click(function(){
+   $("#addrow").toggle("slow");
+  });
+   $("#button11").click(function(){
+    $("#addrow").toggle("slow",addData());
+  });
+ $("#button2").click(function(){
+ $("#delrow").toggle("slow");
+  });
+
+$("#button21").click(function(){
+ $("#delrow").toggle("slow",delRow() );
+   });
+$("#dellocaldata").click(function(){
+	 deleteData();
+     });
+ $("#update").click(function(){
+ $("#updatediv").toggle("slow");
+  });
+ 
+ $("#uconfirm").click(function(){
+ $("#updatediv").toggle("slow",updateData() );
+  });
+ 
+});
+
+function getData() {
+var str= localStorage.getItem("localData");
+if(str != null)
+arr=JSON.parse(str);
+}
+
+
+function showData() {
+	
+        getData();
+		var table = document.getElementById("mytable"); 
+		var x=table.rows.length;
+		
+        while(--x)
+        {
+        table.deleteRow(x);
+        } 
+ 		for(i=0;i<arr.length;i++)
+		{
+ 		  var newRow = table.insertRow();
+                  // add cells to the row
+                  var cel1 = newRow.insertCell();
+                  var cel2 = newRow.insertCell();
+                  var cel3 = newRow.insertCell();
+                  var cel4 = newRow.insertCell();
+                  var cel5 = newRow.insertCell();
+                  // add values to the cells
+                  cel1.innerHTML = arr[i].findex;
+                  cel2.innerHTML = arr[i].fname;
+                  cel3.innerHTML = arr[i].lname;
+                  cel4.innerHTML = arr[i].project;
+                  cel5.innerHTML = arr[i].email;
+        }   
+}
+
+function delRow() {
+
+		var dID=document.getElementById('ID').value;
+ 		var table = document.getElementById("mytable"); 
+		 getData();
+         var x=table.rows.length;
+         var k=x;
+         var i=0;
+		for(i=0;i<k;i++)
+        if(arr[i].findex==dID)
+        	{table.deleteRow(i+1);
+              arr.splice(i, 1);
+              localStorage.setItem("localData", JSON.stringify(arr));
+            break;
+            }
+       if(i===k)
+       alert("value not found");
+        
+}
+
+var arr = new Array();
+function addData() {
+		getData();
+        		var _findex=document.getElementById('findex').value;
+        		var _name =document.getElementById('fname').value;
+                	var _lname = document.getElementById('lname').value;
+                	var _project=document.getElementById('project').value;
+			var _email =document.getElementById('email').value;
+       
+        var x=arr.length;
+        var i=0,j=0;
+        for(i=0;i<x;i++)
+       	 if((arr[i].findex==_findex))
+        {	alert("id value should be unique");
+        	break;
+        }
+        if(i==x)
+     		for(j=0;j<x;j++)
+        	if(arr[j].email==_email)
+        	{	alert("Email is maching");
+           		 break;}
+        if(i==x && j==x )
+        {if(_findex!= '' && _name != '' &&  _lname!='' && _project !='' && _email!=''  )
+		{arr.push({
+		findex:document.getElementById('findex').value,
+                fname :document.getElementById('fname').value,
+                lname :document.getElementById('lname').value,
+                project:document.getElementById('project').value,
+		email :document.getElementById('email').value
+	});
+
+ 	localStorage.setItem("localData",JSON.stringify(arr));
+	sendEmail(email);
+ }
+ showData();
+ }
+}
+
+
+
+function deleteData() 
+{
+localStorage.clear();
+showData();
+}
+
+
+
+function updateData() {
+getData();
+var uid=document.getElementById('uID').value;
+var x=arr.length;
+var i=0;
+for(i=0;i<x;i++)
+if(arr[i].findex == uid)
+{
+	var ufname = document.getElementById('ufname').value;
+        var ulname = document.getElementById('ulname').value;
+        var uproject= document.getElementById('uproject').value;
+	var uemail = document.getElementById('uemail').value;
+
+		{
+		arr[i].fname=ufname;
+		arr[i].lname=ulname;
+		arr[i].project=uproject;
+		arr[i].email=uemail;
+		localStorage.setItem("localData",JSON.stringify(arr));
+		}
+		sendEmail(uemail);
+		showData();
+		break;
+		}
+
+if(i==x)
+alert("please enter a valid Id");
+}
+
+function sendEmail(i) { 
+    Email.send({
+	Host: "smtp.gmail.com",
+	Username : "purnananddubey2001@gmail.com",
+	Password : "dubey@370073",
+	To : i,
+	From : "purnananddubey2001@gmail.com",
+	Subject : "Your filled data",
+	Body : "data of man sending",
+ 	
+	}).then(
+		//message => alert("mail sent successfully")
+	);
+    }
+
+</script>
+<style>
+
+body {
+  background-color:green;
+}
+
+
+
+#cmpltform{
+				padding: 10px;
+				width: 300px;
+				height:70px;
+				background-color: black;
+				position: absolute; 
+				left: 0px;
+				top:0%;
+				color: white;
+				font-size:15px;
+				text-align:center;
+				vertical-align:center;
+				border-radius:7px;
+				border:2px solid white;
+				}
+
+
+
+
+
+
+
+#aform,#uform{
+				width:340px;
+				background-color: #ec2b2b;
+				padding : 25px 20px 0;
+				position: absolute ;
+				left:0px;
+				top:15%;
+				border-radius: 8px;
+				color:white;
+				font-family: Courier New;
+				font-size:15px;
+				border:1px solid black;
+}
+
+
+#uform{
+				margin-left: -40px;
+				width: 450px;
+				background-color: red;
+				position:absolute;
+				top: 90%;
+				left:800px;
+				}
+
+
+
+#button1,#button11,#button2,#button21,#update,#uconfirm,#dellocaldata{
+				position: relative;
+				left:37%;
+				width: 100px;
+				height:40px;
+				color:white;
+				border-radius: 7px;
+				border: 1px transparent;
+				background-color: #28bb22;
+				font-family: Courier New;
+				font-size:16px;
+				/*-webkit-border-radius: 0;         
+				-moz-border-radius: 0;*/
+}
+
+
+
+#dellocaldata{
+				left:75%;
+				width: 170px;
+				height: 50px;
+				background-color: #7155ea;
+				/*vertical-align:center;
+				text-align:center;*/
+				padding:6px;
+				}
+				
+				
+				
+#update{
+				width:150px;
+				left:33%;
+				background-color: #006bff;
+				}
+				
+				
+
+#uconfirm{
+				width:250px;
+				left:23%;
+				background-color: #d14cce;
+				}
+
+
+
+#button11{
+				background-color: #2383be;
+}
+
+
+
+
+#button2{
+				width: 130px;
+				left:33%;
+				background-color: #f2422c;
+}
+
+
+#button21{
+				background-color: #d9af27;
+				}
+
+
+
+#button1,#button2{
+				margin-bottom: 25px;
+				}
+
+
+
+input[type=text]{
+				padding: 5px;
+				border-radius :5px;
+				border: 1px solid black;
+}
+
+
+
+
+
+
+
+
+#dform{
+				width:340px;
+				background-color: #00a7d7;
+				padding : 25px 20px 0;
+				position: absolute ;
+				left:0px;
+				top:95%;
+				border-radius :8px;
+				color:white;
+				font-family: Courier New;
+				font-size:16px;
+				border:1px solid black;
+}
+
+
+div #mytable{
+				width:640px;
+				position: absolute ;
+				left: 400px;
+				top:0%;
+				border:transparent; 
+				border-collapse: collapse;
+				background-color: white;
+				border-radius: 20px;
+}
+
+
+
+#mytable th,td{
+				padding: 15px;
+				text-align:center;
+				border-bottom: 1px solid #ddd;
+				}
+
+#mytable th{
+				border-bottom: 1px solid black;
+				}
+
+
+
+
+
+#fhead{
+				padding: 10px;
+				font-family: Times New Roman;
+				font-size:18;
+				border:transparent; 
+				color:black;
+}
+
+
+#fval{
+				padding: 10px;
+				border:transparent;
+}
+
+
+#ftble0{
+				padding: 20px 0 20px;
+			
+}
+#ftble{
+				padding:0 30px 0;
+				}
+
+</style>
+
+</head> 
+
+
+
+
+<body>      
+
+
+
+<div id="cmpltform">
+<h1>Select an Option  !!</h1>
+</div>
+<div id="aform">
+<button id="button1"> Add Row</button> 
+
+<div id="addrow"> 
+<table id="ftble0">
+<tr id="rgap">
+<td id="fhead">ID:</td> 
+<td id="fval"><input type="text" name="findex" id="findex" required/> </td>
+</tr>
+<tr id="rgap">
+<td id="fhead">First Name:</td> 
+<td id="fval"><input type="text" name="fname" id="fname" required/>            
+</td>
+</tr>
+<tr id="rgap">
+<td id="fhead">Last Name:</td>
+<td id="fval"><input type="text" name="lname" id="lname"  required/>         
+</td>
+</tr>
+<tr id="rgap">
+<td id="fhead">project:</td>
+<td id="fval"> <input type="text" name="project" id="project"  required/>
+</td>
+</tr>
+<tr id="rgap">
+<td id="fhead">Email_id:</td>
+<td id="fval"> <input type="text" name="email" id="email"  required/>
+</td>
+</tr>
+</table>
+<button id="button11"> Submit</button> 
+<br><br> 
+</div>
+</div>
+
+
+<div id="dform">
+<button id="button2"> Delete Row</button>     
+<div id="delrow">     
+<table id="ftble">
+<tr id="rgap">
+<td id="fhead">ID:</td>
+<td id="fval"><input type="text" name="ID" id="ID" required/>    </td>
+</tr>
+</table>
+<button id="button21"> Confirm</button> 
+<br><br>
+</div>
+</div>
+
+
+<!--update file code -->
+<div id="uform">
+<button id="update"> UpdateData</button> <br><br>
+<div id="updatediv">
+ID:<input type="text" name="uID" id="uID" required/><br><br>
+
+Updated First Name :<input type="text" name="ufname" id="ufname" required/><br><br>
+
+Updated Last  Name :<input type="text" name="ulname" id="ulname"  required/><br><br>    
+
+Updated Project :<input type="text" name="uproject" id="uproject"  required/><br><br>
+
+Updated Email :<input type="text" name="uemail" id="uemail"  required/><br><br>
+
+<button id="uconfirm">Update Data Confirm</button> <br><br>
+</div>
+</div>
+
+<button id="dellocaldata"> DeleteAllData </button> <br><br>
+ 
+<div id="myTable"> 
+<table id="mytable" border="1" > 
+
+<tr>         
+
+    <th>ID </th> 
+    <th>First Name</th> 
+    <th>Last Name</th> 
+    <th>project</th>         
+    <th>Email_id</th> 
+</tr> 
+<tr>
+          <td> 1</td> 
+          <td>AAAAAA</td> 
+          <td>BBBBBB</td> 
+          <td>10</td>         
+          <td>@jk</td> 
+</tr> 
+
+
+</table>         
+
+
+</div>
+
+
+
+<script>     
+
+showData(); 
+
+    </script>     
+    
+    </body> 
+    
+    
+    </html>
