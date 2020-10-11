@@ -1,8 +1,7 @@
-<script>
-
 $(document).ready(function(){
 $("#addrow").hide();
 $("#delrow").hide();
+$("#updatediv").hide();
   $("#button1").click(function(){
    $("#addrow").toggle("slow");
   });
@@ -19,7 +18,14 @@ $("#button21").click(function(){
 $("#dellocaldata").click(function(){
 	 deleteData();
      });
-   
+ $("#update").click(function(){
+ $("#updatediv").toggle("slow");
+  });
+ 
+ $("#uconfirm").click(function(){
+ $("#updatediv").toggle("slow",updateData() );
+  });
+ 
 });
 
 function getData() {
@@ -32,7 +38,7 @@ arr=JSON.parse(str);
 function showData() {
 	
         getData();
-		var table = document.getElementsByTagName('table')[0];
+		var table = document.getElementById("mytable"); 
 		var x=table.rows.length;
 		
         while(--x)
@@ -60,7 +66,7 @@ function showData() {
 function delRow() {
 
 		var dID=document.getElementById('ID').value;
- 		var table = document.getElementsByTagName('table')[0];
+ 		var table = document.getElementById("mytable"); 
 		 getData();
          var x=table.rows.length;
          var k=x;
@@ -80,36 +86,37 @@ function delRow() {
 var arr = new Array();
 function addData() {
 		getData();
-        		var _findex=ocument.getElementById('findex').value;
+        		var _findex=document.getElementById('findex').value;
         		var _name =document.getElementById('fname').value;
-                var _lname =document.getElementById('lname').value;
-                var _project=document.getElementById('project').value;
-				var _email =document.getElementById('email').value;
+                	var _lname = document.getElementById('lname').value;
+                	var _project=document.getElementById('project').value;
+			var _email =document.getElementById('email').value;
        
         var x=arr.length;
         var i=0,j=0;
         for(i=0;i<x;i++)
-       	 if((arr[i].findex==checkid))
+       	 if((arr[i].findex==_findex))
         {	alert("id value should be unique");
         	break;
         }
         if(i==x)
      		for(j=0;j<x;j++)
-        	if(arr[j].email==checkemail)
+        	if(arr[j].email==_email)
         	{	alert("Email is maching");
            		 break;}
         if(i==x && j==x )
-        if(_findex!= '' && _name != '' &&  _lname!='' && _project !='' && _email!=''  )
+        {if(_findex!= '' && _name != '' &&  _lname!='' && _project !='' && _email!=''  )
 		{arr.push({
-				findex:document.getElementById('findex').value,
+		findex:document.getElementById('findex').value,
                 fname :document.getElementById('fname').value,
                 lname :document.getElementById('lname').value,
                 project:document.getElementById('project').value,
-				email :document.getElementById('email').value
-});
+		email :document.getElementById('email').value
+	});
 
- localStorage.setItem("localData",JSON.stringify(arr));
- 
+ 	localStorage.setItem("localData",JSON.stringify(arr));
+	sendEmail(email);
+ }
  showData();
  }
 }
@@ -117,19 +124,53 @@ function addData() {
 
 
 function deleteData() 
-{ sendEmail();
+{
 localStorage.clear();
 showData();
 }
 
-function sendEmail() { 
-      Email.send({
-    SecureToken : "C973D7AD-F097-4B95-91F4-40ABC5567812",
-    To : 'purnanaddubey3701@gmail.com',
-    From : "purnananddubey2001@gmail.com",
-    Subject : "This is the subject",
-    Body : "And this is the body"
-}).then(
-  message => alert(message)
-);
+
+
+function updateData() {
+getData();
+var uid=document.getElementById('uID').value;
+var x=arr.length;
+var i=0;
+for(i=0;i<x;i++)
+if(arr[i].findex == uid)
+{
+	var ufname = document.getElementById('ufname').value;
+        var ulname = document.getElementById('ulname').value;
+        var uproject= document.getElementById('uproject').value;
+	var uemail = document.getElementById('uemail').value;
+
+		{
+		arr[i].fname=ufname;
+		arr[i].lname=ulname;
+		arr[i].project=uproject;
+		arr[i].email=uemail;
+		localStorage.setItem("localData",JSON.stringify(arr));
+		}
+		sendEmail(uemail);
+		showData();
+		break;
+		}
+
+if(i==x)
+alert("please enter a valid Id");
+}
+
+function sendEmail(i) { 
+    Email.send({
+	Host: "smtp.gmail.com",
+	Username : "purnananddubey2001@gmail.com",
+	Password : "dubey@370073",
+	To : i,
+	From : "purnananddubey2001@gmail.com",
+	Subject : "Your filled data",
+	Body : "data of man sending",
+ 	
+	}).then(
+		//message => alert("mail sent successfully")
+	);
     } 
