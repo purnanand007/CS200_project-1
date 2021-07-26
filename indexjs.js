@@ -3,27 +3,27 @@ $("#addrow").hide();
 $("#delrow").hide();
 $("#updatediv").hide();
   $("#button1").click(function(){
-   $("#addrow").toggle("slow");
+   //$("#addrow").toggle("slow");
   });
    $("#button11").click(function(){
-    $("#addrow").toggle("slow",addData());
+   // $("#addrow").toggle("slow",addData());
   });
  $("#button2").click(function(){
- $("#delrow").toggle("slow");
+ //$("#delrow").toggle("slow");
   });
 
 $("#button21").click(function(){
- $("#delrow").toggle("slow",delRow() );
+ //$("#delrow").toggle("slow",delRow() );
    });
 $("#dellocaldata").click(function(){
 	 deleteData();
      });
  $("#update").click(function(){
- $("#updatediv").toggle("slow");
+// $("#updatediv").toggle("slow");
   });
  
  $("#uconfirm").click(function(){
- $("#updatediv").toggle("slow",updateData() );
+ //$("#updatediv").toggle("slow",updateData() );
   });
  
 });
