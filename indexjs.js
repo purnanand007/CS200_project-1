@@ -1,7 +1,7 @@
 $(document).ready(function(){
-$("#addrow").hide();
-$("#delrow").hide();
-$("#updatediv").hide();
+//$("#addrow").hide();
+//$("#delrow").hide();
+//$("#updatediv").hide();
   $("#button1").click(function(){
    //$("#addrow").toggle("slow");
   });
